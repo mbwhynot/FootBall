@@ -13,7 +13,6 @@
             background-color: greenyellow;
             border: 2px dotted;
             border-top: 0px;
-
         }
 
         .dot {
@@ -23,15 +22,11 @@
         }
 
         #ball {
-            /* border-radius: 50%; */
             height: 100px;
             width: 100px;
-            /* background-color: rgb(255, 255, 255);  */
             position: absolute;
             top: 100px;
             left: 10px;
-            /* border: 2px dotted black; */
-
         }
     </style>
 </head>
@@ -46,10 +41,11 @@
         <img id="ball" src="/football_PNG52775.png" alt="don`t worry">
     </div>
     <script>
-
+        
         window.addEventListener("load", init, false)
 
         function init() {
+
             let ball = document.getElementById('ball')
             ball.addEventListener("mousedown", function (e) {
                 drag(this, e);
@@ -80,6 +76,9 @@
                 document.removeEventListener("mousemove", moveHandler, true);
             }
         }
+
+
+
     </script>
 </body>
 

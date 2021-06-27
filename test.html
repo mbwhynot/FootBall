@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+        }
+
+        #d {
+            width: 500px;
+            height: 500px;
+            background-color: rgb(55, 232, 245);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #ball {
+            background-color: rgb(49, 93, 133);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: 160px;
+            left: 1100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d"></div>
+    </div>
+    <div id="ball"></div>
+    <script>
+        let div = document.getElementById("d")
+        let ball = document.getElementById('ball')
+        ball.addEventListener("mousedown", function (e) {
+                drag(this, e);
+            })
+        
+        function drag(elementToDrag, event) {
+            // координаты мыши в начале перетаскивания.
+            let startX = event.clientX,
+                startY = event.clientY;
+
+            // разница между начальными координатами объекта и серединой мяча 
+            let ballX = 50;
+            ballY = 50;
+
+            // Регистрация событий mouseup и mousemove
+            document.addEventListener("mousemove", moveHandler, true);
+            document.addEventListener("mouseup", upHandler, true);
+            function moveHandler(e) {
+                if (!e) e = window.event;
+
+                // перемещаем элемент с учетом отступа от первоначального клика.
+                elementToDrag.style.left = (e.clientX - ballX) + "px";
+                elementToDrag.style.top = (e.clientY - ballY) + "px";
+            }
+
+            function upHandler(e) {
+                if (!e) e = window.event;
+                document.removeEventListener("mousemove", moveHandler, true);
+            }
+        }
+            // let bodyRect = div.getBoundingClientRect()
+            // let elemRect = ball.getBoundingClientRect(),
+            // offset = elemRect.top - bodyRect.top;
+            // console.log(offset)
+            // if (offset > 400) {
+            //     {
+            //         document.removeEventListener("mousemove", moveHandler, true);
+            //         function upHandler(e) {
+            //             document.removeEventListener("mousemove", moveHandler, true);
+            //         }
+            //     }
+
+
+        
+
+    </script>
+</body>
+
+</html>
